@@ -1,6 +1,5 @@
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
-
 import '../assets/global_values.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -40,7 +39,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             trailing: Icon(Icons.chevron_right),
             title: Text('FruitApp'),
             subtitle: Text('Carrusel'),
-            onTap: (){},
+            onTap: ()=> Navigator.pushNamed(context, '/frutas'),
           ),
           DayNightSwitcher(
             isDarkModeEnabled: GlobalValues.flagTheme.value,
