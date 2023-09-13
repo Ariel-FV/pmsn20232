@@ -65,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
             alignment: Alignment.bottomCenter,
             children: [
               Container(
-                height: 200,
+                height: 220,
                 padding: EdgeInsets.all(30),
                 margin: EdgeInsets.symmetric(horizontal: 30),
                 //color: Colors.white,
@@ -77,17 +77,40 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     txtUser,
                     const SizedBox(height: 10),
-                    txtPass
+                    txtPass,
+                    const SizedBox(height: 10),
+                    
                   ],
                 ),
               ),
-              imgLogo
+              imgLogo,
+              conocenos(),
             ],
           ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: btnEntrar,
+      
+    );
+  }
+}
+
+class conocenos extends StatelessWidget {
+  const conocenos({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton.extended(
+      heroTag: conocenos,
+      onPressed: () {
+        Navigator.pushNamed(context, '/knows');
+      },
+      label: const Text('Info.'),
+      icon: const Icon(Icons.info),
+      backgroundColor: const Color.fromARGB(255, 25, 143, 31),
     );
   }
 }
