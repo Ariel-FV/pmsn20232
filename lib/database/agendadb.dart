@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:pmsn20232/models/task_model.dart';
 import 'package:sqflite/sqflite.dart';
 
 class AgendaDB{
@@ -29,7 +30,7 @@ class AgendaDB{
       idTask integer primary key, 
       nameTask varvhar(50), 
       dscTask vatchar(50), 
-      sttTask byte,)''';
+      sttTask byte);''';
     db.execute(query);
   }
   Future<int> INSERT(String tblName, Map<String,dynamic> data) async {
@@ -47,8 +48,9 @@ class AgendaDB{
     return conexion!.delete(tblName, where: 'idTask = ?',whereArgs: [idTask]);
   }
 
-  /*Future<List<?>> GETALLTASK() async{
+  Future<List<TaskModel>> GETALLTASK() async{
     var conexion = await database;
-    var result = conexion!.query('tblTask');
-  }*/
+    var result = await conexion!.query('tblTareas');
+    return result.map((task)=>TaskModel.fromMap(task)).toList();
+  }
 }

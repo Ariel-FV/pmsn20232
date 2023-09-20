@@ -1,8 +1,10 @@
 import 'package:flutter/widgets.dart';
+import 'package:pmsn20232/screens/add_task.dart';
 import 'package:pmsn20232/screens/dashboard_screen.dart';
 import 'package:pmsn20232/screens/frutas_screen.dart';
 import 'package:pmsn20232/screens/login_screen.dart';
 import 'package:pmsn20232/screens/onboard_screen.dart';
+import 'package:pmsn20232/screens/task_screen.dart';
 
 Map<String,WidgetBuilder> getRoutes(){
   return{
@@ -10,5 +12,7 @@ Map<String,WidgetBuilder> getRoutes(){
     '/frutas' : (BuildContext contex) => FrutasScreen(),
     '/knows': (BuildContext contex) => OnBoardScreen(),
     '/login': (BuildContext context) => LoginScreen(),
+    '/task': (BuildContext context) => TaskScreen(),
+    '/add': (BuildContext context) => AddTask(),
   };
 }

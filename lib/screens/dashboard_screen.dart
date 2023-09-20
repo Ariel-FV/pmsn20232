@@ -17,11 +17,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       appBar: AppBar(
         title: Text('Bienvenidos :)'),
       ),
-      drawer: createDrawer(),
+      drawer: createDrawer(context),
     );
   }
 
-  Widget createDrawer(){
+  Widget createDrawer(context){
     return Drawer(
       child: ListView(
         children: [
@@ -40,6 +40,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
             title: Text('FruitApp'),
             subtitle: Text('Carrusel'),
             onTap: ()=> Navigator.pushNamed(context, '/frutas'),
+          ),
+          ListTile(
+            leading: Icon(Icons.task),
+            //leading: Image.network('https://cdn3.iconfinder.com/data/icons/materia-flat-halloween-free/24/039_026_cat_black_witch_halloween-512.png'),
+            //leading: Image.asset('assets/aguacate.png'),
+            trailing: Icon(Icons.chevron_right),
+            title: Text('Task Manager'),
+            subtitle: Text('Tasks'),
+            onTap: ()=> Navigator.pushNamed(context, '/task'),
           ),
           DayNightSwitcher(
             isDarkModeEnabled: GlobalValues.flagTheme.value,

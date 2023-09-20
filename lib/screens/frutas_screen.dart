@@ -24,7 +24,7 @@ class _FrutasScreenState extends State<FrutasScreen> {
       home: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.amber[200],
+          backgroundColor: Color.fromARGB(255, 60, 205, 31),
           leading: Row(
             children: <Widget>[
               SizedBox(
@@ -35,7 +35,7 @@ class _FrutasScreenState extends State<FrutasScreen> {
                 icon: const Icon(
                   Icons.arrow_back,
                 ),
-                onPressed: () {},
+                onPressed: ()=> Navigator.pop(context, '/frutas'),
               ),
             ],
           ),
@@ -52,7 +52,7 @@ class _FrutasScreenState extends State<FrutasScreen> {
             ),
           ],
         ),
-        backgroundColor: Colors.amber[200],
+        backgroundColor: Color.fromARGB(255, 60, 205, 31),
         body: ListView(
           children: <Widget>[
             Column(
