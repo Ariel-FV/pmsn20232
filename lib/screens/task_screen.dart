@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pmsn20232/assets/global_values.dart';
 import 'package:pmsn20232/database/agendadb.dart';
 import 'package:pmsn20232/models/task_model.dart';
+import 'package:pmsn20232/widgets/CardTaskWidget.dart';
 
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key});
@@ -25,30 +27,38 @@ void initState(){
         title: Text('Task Manager'),
         actions: [
           IconButton(
-            onPressed: () => Navigator.pushNamed(context, '/add'), 
+            onPressed: () => Navigator.pushNamed(context, '/add').then((value){
+              setState(() {});
+            }), 
             icon: Icon(Icons.task))
         ],
       ),
-      body: FutureBuilder(
-        future: agendaDB!.GETALLTASK(),
-        builder: (BuildContext context, AsyncSnapshot<List<TaskModel>> snapshot){
-          if(snapshot.hasData){
-            return ListView.builder(
-              itemCount: 5,//snapshot.data!.length,
-              itemBuilder: (BuildContext context, int index){
-                return Text("hola");
+      body: ValueListenableBuilder(
+        valueListenable: GlobalValues.flagTask,
+        builder: (context,value,_) {
+          return FutureBuilder(
+            future: agendaDB!.GETALLTASK(),
+            builder: (BuildContext context, AsyncSnapshot<List<TaskModel>> snapshot){
+              if(snapshot.hasData){
+                return ListView.builder(
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (BuildContext context, int index){
+                    //return Text("hola");
+                    return CardTaskWidget(taskModel: snapshot.data![index],agendaDB: agendaDB);
+                  }
+                );
+              }else{
+                if(snapshot.hasError){
+                  return const Center(
+                    child: Text('Ya valio madres :\')'),
+                  );
+                }else{
+                  return CircularProgressIndicator();
+                }
               }
-            );
-          }else{
-            if(snapshot.hasError){
-              return const Center(
-                child: Text('Ya valio madres :\')'),
-              );
-            }else{
-              return CircularProgressIndicator();
-            }
-          }
-        },
+            },
+          );
+        }
       ),
     );
   }
