@@ -50,6 +50,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
             subtitle: Text('Tasks'),
             onTap: ()=> Navigator.pushNamed(context, '/task'),
           ),
+          ListTile(
+            leading: Icon(Icons.movie),
+            //leading: Image.network('https://cdn3.iconfinder.com/data/icons/materia-flat-halloween-free/24/039_026_cat_black_witch_halloween-512.png'),
+            //leading: Image.asset('assets/aguacate.png'),
+            trailing: Icon(Icons.chevron_right),
+            title: Text('Popular Movies'),
+            subtitle: Text('Movies'),
+            onTap: ()=> Navigator.pushNamed(context, '/popular'),
+          ),
           DayNightSwitcher(
             isDarkModeEnabled: GlobalValues.flagTheme.value,
             onStateChanged: (isDarkModeEnabled) {

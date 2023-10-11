@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pmsn20232/assets/global_values.dart';
 import 'package:pmsn20232/database/agendadb.dart';
+import 'package:pmsn20232/models/task_model.dart';
 
 class AddTask extends StatefulWidget {
-  const AddTask({super.key});
+  AddTask({super.key, this.taskModel});
+
+  TaskModel? taskModel;
 
   @override
   State<AddTask> createState() => _AddTaskState();
@@ -22,6 +26,17 @@ class _AddTaskState extends State<AddTask> {
     // TODO: implement initState
     super.initState();
     agendaDB = AgendaDB();
+
+    if(widget.taskModel != null){
+      txtConName.text = widget.taskModel!.nameTask!;
+      txtConDesc.text = widget.taskModel!.dscTask!;
+      switch (widget.taskModel!.sttTask){
+        case 'E': dropDownValue = "En Proceso"; break;
+        case 'C': dropDownValue = "Completado"; break;
+        case 'P': 
+        default: dropDownValue = "Pendiente";
+      }
+    }
   }
 
   @override
@@ -59,10 +74,11 @@ class _AddTaskState extends State<AddTask> {
 
     final ElevatedButton btnGuardar = ElevatedButton(
       onPressed: (){
-        agendaDB!.INSERT('tblTareas', {  
+        if(widget.taskModel == null){
+          agendaDB!.INSERT('tblTareas', {  
           'nameTask' : txtConName.text,
           'dscTask' : txtConDesc.text,
-          'sttTask' : dropDownValue.substring(1,1)
+          'sttTask' : dropDownValue.substring(0,1),
         }).then((value) {
           var msj = (value > 0)
           ? 'La insercion fue exitosa! :)'
@@ -71,6 +87,22 @@ class _AddTaskState extends State<AddTask> {
           ScaffoldMessenger.of(context).showSnackBar(snackbar);
           Navigator.pop(context);
         });
+        }else{
+          agendaDB!.UPDATE('tblTareas', {
+            'idTask' : widget.taskModel!.idTask,
+            'nameTask' : txtConName.text,
+            'dscTask' : txtConDesc.text,
+            'sttTask' : dropDownValue.substring(0,1)
+          }).then((value) {
+            GlobalValues.flagTask.value = !GlobalValues.flagTask.value;
+            var msj = (value > 0)
+            ? 'La actualizacion fue exitosa! :)'
+            : 'Ocurrio un error! :(';
+            var snackbar = SnackBar(content: Text(msj));
+            ScaffoldMessenger.of(context).showSnackBar(snackbar);
+            Navigator.pop(context);
+          });
+        }
       }, 
       child: Text('Save Task'),
     );
@@ -79,7 +111,9 @@ class _AddTaskState extends State<AddTask> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Task'),
+        title: widget.taskModel == null 
+        ?Text('Add Task')
+        :Text('Update Task'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),

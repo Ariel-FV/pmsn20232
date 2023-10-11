@@ -2,18 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pmsn20232/assets/global_values.dart';
 import 'package:pmsn20232/database/agendadb.dart';
 import 'package:pmsn20232/models/task_model.dart';
+import 'package:pmsn20232/screens/add_task.dart';
 
-class CardTaskWidget extends StatefulWidget {
+class CardTaskWidget extends StatelessWidget {
   CardTaskWidget({super.key,required this.taskModel,this.agendaDB});
 
   TaskModel taskModel;
   AgendaDB? agendaDB;
 
-  @override
-  State<CardTaskWidget> createState() => _CardTaskWidgetState();
-}
-
-class _CardTaskWidgetState extends State<CardTaskWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,15 +22,16 @@ class _CardTaskWidgetState extends State<CardTaskWidget> {
         children: [
           Column(
             children: [
-              Text(widget.taskModel.nameTask!),
-              Text(widget.taskModel.dscTask!),
+              Text(taskModel.nameTask!),
+              Text(taskModel.dscTask!),
+              Text(taskModel.sttTask!)
             ],
           ),
           Expanded(child: Container()),
           Column(
             children: [
               GestureDetector(
-                onTap: (){},
+                onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: ((context) => AddTask(taskModel: taskModel)))),
                 child: Image.asset('assets/mango.png',height: 50,)
               ),
               IconButton(onPressed: (){
@@ -47,7 +44,7 @@ class _CardTaskWidgetState extends State<CardTaskWidget> {
                       actions: [
                         TextButton(
                           onPressed: (){
-                            widget.agendaDB!.DELETE('tblTareas', widget.taskModel.idTask!).then((value){
+                            agendaDB!.DELETE('tblTareas', taskModel.idTask!).then((value){
                               Navigator.pop(context);
                               GlobalValues.flagTask.value = !GlobalValues.flagTask.value;
                             });
