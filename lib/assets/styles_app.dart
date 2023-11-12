@@ -6,8 +6,11 @@ class StyleApp{
     return theme.copyWith(
       //primaryColor: Color.fromARGB(255, 255, 100, 50),
       colorScheme: Theme.of(context).colorScheme.copyWith(
-        primary: Color.fromARGB(255, 255, 100, 0),
-      )
+        primary: Color.fromARGB(255, 194, 47, 235),
+      ),
+      iconTheme: IconThemeData(
+        color: Color.fromARGB(255, 194, 47, 235),
+      ),
     );
   }
 
@@ -15,8 +18,12 @@ class StyleApp{
     final theme = ThemeData.dark();
     return theme.copyWith(
       colorScheme: Theme.of(context).colorScheme.copyWith(
-        primary: Color.fromARGB(155, 100, 200, 90),
-      )
+        primary: Color.fromARGB(238, 0, 214, 11),
+        
+      ),
+      iconTheme: IconThemeData(
+        color: Color.fromARGB(238, 0, 214, 11),
+      ),
     );
   }
 }

@@ -16,7 +16,7 @@ class CardTaskWidget extends StatelessWidget {
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: Colors.green
+        color: Color.fromARGB(255, 62, 218, 207)
       ),
       child: Row(
         children: [

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pmsn20232/assets/global_values.dart';
+import 'package:pmsn20232/firebase/email_auth.dart';
+import 'package:social_login_buttons/social_login_buttons.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -8,91 +11,116 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  final emailAuth = EmailAuth();
+  final imglogo = Image.asset('assets/logo.png', height: 350, width: 350);
+  final imglogoD = Image.asset('assets/logo.png', height: 300, width: 300,);
+  final spaceHorizontal = SizedBox(height: 10,);
+
   @override
   Widget build(BuildContext context) {
     //controladores
     TextEditingController txtConUser = TextEditingController();
     TextEditingController txtConPass = TextEditingController();
 
-    //declaracion de los elementos
-    final imgLogo = Container(
-      width: 400,
-        decoration: const BoxDecoration( 
-          image: DecorationImage(
-            image: NetworkImage('https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/Studio_Ghibli_logo.svg/1200px-Studio_Ghibli_logo.svg.png')
-         )
-        ),
-      );
+    final txtRegister = Padding(
+      padding: const EdgeInsets.symmetric(vertical: 25),
+       child: TextButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/register');
+          },
+          child: const Text('Crear cuenta :)', style: TextStyle(fontSize: 18, decoration: TextDecoration.underline))));
 
-    final txtUser = TextField(
+    final txtEmail = TextFormField(
       controller: txtConUser,
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
+        label: Text('Email User'),
         border: OutlineInputBorder()
       ),
     );
 
-    final txtPass = TextField(
+    final txtPass = TextFormField(
       controller: txtConPass,
-      decoration: const InputDecoration(
-        border: OutlineInputBorder()
-      ),
       obscureText: true,
+      decoration: InputDecoration(
+        label: Text('Password'),
+        border: OutlineInputBorder()
+      )
     );
 
-    final btnEntrar = FloatingActionButton.extended(
-      icon: Icon(Icons.login),
-      label: Text('Entrar'),
-      onPressed: (){
-      //onPressed: () => Navigator.pushNamed(context, '/dash');
-        Navigator.pushNamed(context, '/dash');
+    final btnEmail = SocialLoginButton(
+      buttonType: SocialLoginButtonType.generalLogin, 
+      onPressed:() async {
+        bool res = await emailAuth.validateUser(emailUser: txtConUser.text, pwdUser: txtConPass.text);
+        txtConPass.text = '';
+        txtConUser.text = '';
+        if(res){
+          GlobalValues.login.setBool('login', true);
+          Navigator.pushNamed(context, '/dash');
+        }
+        //Navigator.pushNamed(context, '/dash');
       }
     );
+
+    final session = CheckboxListTile(
+      title: Text('Recordar'),
+      controlAffinity: ListTileControlAffinity.leading,
+      value: GlobalValues.session.getBool('session') ?? false,
+      onChanged: (bool? newbool) {
+        setState(() {
+          GlobalValues.session.setBool('session', newbool!);
+        });
+      });
+
+    txtConUser.text = 'ariel.fonseca19@hotmail.com';
+    txtConPass.text = '123456';
     
     //construccion de la pantalla login
     return Scaffold(
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration( 
-          image: DecorationImage(
-            opacity: .7,
-            fit: BoxFit.cover,
-            image: NetworkImage('https://e0.pxfuel.com/wallpapers/835/942/desktop-wallpaper-resultado-de-n-para-fondos-de-pantalla-para-celular-tumblr-totoro-design.jpg')
-         )
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 100.0),
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              Container(
-                height: 220,
-                padding: EdgeInsets.all(30),
-                margin: EdgeInsets.symmetric(horizontal: 30),
-                //color: Colors.white,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Colors.white
-                ),
-                child: Column(
+        resizeToAvoidBottomInset: false,
+        body: Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  opacity: .6, 
+                  fit: BoxFit.cover, 
+                  image: AssetImage('assets/fondotf.jpg')
+                )
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Stack(
+                  alignment: Alignment.topCenter,
                   children: [
-                    txtUser,
-                    const SizedBox(height: 10),
-                    txtPass,
-                    const SizedBox(height: 10),
-                    
+                    ListView(
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                              imglogo,
+                              txtEmail,
+                              spaceHorizontal,
+                              txtPass,
+                              spaceHorizontal,
+                              session,
+                              spaceHorizontal,
+                              btnEmail,
+                              spaceHorizontal,
+                              txtRegister,
+                              spaceHorizontal,
+                              conocenos()
+                          ],
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
-              imgLogo,
-              conocenos(),
-            ],
-          ),
+            ),
+          ],
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: btnEntrar,
-      
-    );
+      );
   }
 }
 

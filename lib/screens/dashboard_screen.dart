@@ -36,35 +36,111 @@ class _DashboardScreenState extends State<DashboardScreen> {
             //leading: Icon(Icons.mouse),
             //leading: Image.network('https://cdn3.iconfinder.com/data/icons/materia-flat-halloween-free/24/039_026_cat_black_witch_halloween-512.png'),
             leading: Image.asset('assets/aguacate.png'),
-            trailing: Icon(Icons.chevron_right),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
             title: Text('FruitApp'),
             subtitle: Text('Carrusel'),
             onTap: ()=> Navigator.pushNamed(context, '/frutas'),
           ),
           ListTile(
-            leading: Icon(Icons.task),
+            leading: Icon(Icons.task, color: Theme.of(context).iconTheme.color),
             //leading: Image.network('https://cdn3.iconfinder.com/data/icons/materia-flat-halloween-free/24/039_026_cat_black_witch_halloween-512.png'),
             //leading: Image.asset('assets/aguacate.png'),
-            trailing: Icon(Icons.chevron_right),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
             title: Text('Task Manager'),
             subtitle: Text('Tasks'),
             onTap: ()=> Navigator.pushNamed(context, '/task'),
           ),
+          /*ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, '/popular2');
+              },
+              horizontalTitleGap: 0.0,
+              leading: const Icon(Icons.movie),
+              title: const Text(
+                'API Movies',
+                style: TextStyle(fontSize: 16),
+              ),
+              trailing: Icon(Icons.chevron_right),
+            ),*/
           ListTile(
-            leading: Icon(Icons.movie),
+            leading: Icon(Icons.movie, color: Theme.of(context).iconTheme.color),
             //leading: Image.network('https://cdn3.iconfinder.com/data/icons/materia-flat-halloween-free/24/039_026_cat_black_witch_halloween-512.png'),
             //leading: Image.asset('assets/aguacate.png'),
-            trailing: Icon(Icons.chevron_right),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
             title: Text('Popular Movies'),
-            subtitle: Text('Movies'),
-            onTap: ()=> Navigator.pushNamed(context, '/popular'),
+            subtitle: Text('Movies y Practica 5'),
+            onTap: ()=> Navigator.pushNamed(context, '/popular2'),
+          ),
+          ListTile(
+            leading: Icon(Icons.animation_outlined, color: Theme.of(context).iconTheme.color),
+            //leading: Image.network('https://cdn3.iconfinder.com/data/icons/materia-flat-halloween-free/24/039_026_cat_black_witch_halloween-512.png'),
+            //leading: Image.asset('assets/aguacate.png'),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: Text('Test Provider'),
+            subtitle: Text('Provider'),
+            onTap: ()=> Navigator.pushNamed(context, '/prov'),
+          ),
+          ListTile(
+            leading: Icon(Icons.date_range, color: Theme.of(context).iconTheme.color),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: const Text('Calendario'),
+            subtitle: Text('Practica 4'),
+            onTap: () {
+              Navigator.pushNamed(context, '/calendar');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.person, color: Theme.of(context).iconTheme.color),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: const Text('Profesores'),
+            subtitle: Text('Practica 4'),
+            onTap: () {
+              Navigator.pushNamed(context, '/professor');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.document_scanner, color: Theme.of(context).iconTheme.color),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: const Text('Carreras'),
+            subtitle: Text('Practica 4'),
+            onTap: () {
+              Navigator.pushNamed(context, '/carreras');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.home_work, color: Theme.of(context).iconTheme.color),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: const Text('Task'),
+            subtitle: Text('Practica 4'),
+            onTap: () {
+              Navigator.pushNamed(context, '/tasks');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.map, color: Theme.of(context).iconTheme.color),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: const Text('Mapas'),
+            subtitle: Text('Practica 6'),
+            onTap: () {
+              Navigator.pushNamed(context, '/maps');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.logout, color: Theme.of(context).iconTheme.color),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: const Text('logout'),
+            subtitle: Text('Practica 3'),
+            onTap: () {
+              GlobalValues.login.setBool('login', false);
+              GlobalValues.session.setBool('session', false);
+              Navigator.pushNamed(context, '/login');
+            },
           ),
           DayNightSwitcher(
             isDarkModeEnabled: GlobalValues.flagTheme.value,
             onStateChanged: (isDarkModeEnabled) {
-              setState(() {
-                GlobalValues.flagTheme.value= isDarkModeEnabled;
-              });
+              GlobalValues.teme.setBool('teme', isDarkModeEnabled);
+              GlobalValues.flagTheme.value = isDarkModeEnabled;
             },
           ),
         ],
