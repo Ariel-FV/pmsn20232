@@ -11,12 +11,38 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
 
+   final imglogo = Image.asset('assets/dashlogo.gif', height: 350, width: 350);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Bienvenidos :)'),
       ),
+      body: Stack(
+          children: [
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    ListView(
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                              imglogo,
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       drawer: createDrawer(context),
     );
   }
@@ -80,7 +106,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             subtitle: Text('Provider'),
             onTap: ()=> Navigator.pushNamed(context, '/prov'),
           ),
-          ListTile(
+          /*ListTile(
             leading: Icon(Icons.date_range, color: Theme.of(context).iconTheme.color),
             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
             title: const Text('Calendario'),
@@ -106,14 +132,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
             onTap: () {
               Navigator.pushNamed(context, '/carreras');
             },
-          ),
+          ),*/
           ListTile(
-            leading: Icon(Icons.home_work, color: Theme.of(context).iconTheme.color),
+            leading: Icon(Icons.school, color: Theme.of(context).iconTheme.color),
             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
-            title: const Text('Task'),
+            title: const Text('Tareas'),
             subtitle: Text('Practica 4'),
             onTap: () {
-              Navigator.pushNamed(context, '/tasks');
+              Navigator.pushNamed(context, '/practica4');
             },
           ),
           ListTile(

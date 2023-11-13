@@ -112,8 +112,7 @@ class MovieDetailScreen extends StatelessWidget {
                             ActorModel actor = snapshot.data![index];
                             return ActorCard(
                               name: actor.name!,
-                              photoUrl:
-                                  'https://image.tmdb.org/t/p/original${actor.profilePath}',
+                              photoUrl: actorp(actor),
                             );
                           },
                         ),
@@ -153,5 +152,12 @@ class MovieDetailScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+  actorp(ActorModel actor2){
+    if(actor2.profilePath==null){
+      return 'https://img.freepik.com/fotos-premium/gato-negro-traje-corbata_871710-7371.jpg';
+    }else{
+      return 'https://image.tmdb.org/t/p/original${actor2.profilePath}';
+    }
   }
 }

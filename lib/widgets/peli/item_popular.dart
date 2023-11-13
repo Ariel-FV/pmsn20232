@@ -21,12 +21,13 @@ class _ItemPopularState extends State<ItemPopular> {
     return Stack(
       children: [
         Container(
-          decoration: BoxDecoration(
+          /*decoration: BoxDecoration(
+            ,
             shape: BoxShape.circle,
             border: Border.all(color: Color.fromARGB(255, 106, 255, 0)),
-          ),
+          ),*/
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(5),
             child: FadeInImage(
               fit: BoxFit.fill,
               placeholder: AssetImage('assets/loading.gif'),
@@ -44,7 +45,7 @@ class _ItemPopularState extends State<ItemPopular> {
                 if (snapshot.hasData) {
                   return IconButton(
                     icon: Icon(Icons.favorite),
-                    color: snapshot.data != true ? Colors.white : Colors.red,
+                    color: snapshot.data != true ? const Color.fromARGB(255, 106, 106, 106) : Colors.red,
                     onPressed: () {
                       if (snapshot.data != true) {
                         databaseHelper

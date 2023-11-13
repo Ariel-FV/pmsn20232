@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:pmsn20232/screens/calen/tareas_screen.dart';
 import 'package:pmsn20232/screens/maps_screen.dart';
 import 'package:pmsn20232/screens/peli/movie_list_screen.dart';
 import 'package:pmsn20232/screens/register_screen.dart';
@@ -26,5 +27,6 @@ Map<String,WidgetBuilder> getRoutes(){
     '/register': (BuildContext context) => const RegisterScreen(),
     '/maps': (BuildContext context) => const MapsScreen(),
     '/popular2': (BuildContext context) => const MovieListVideos(),
+    '/practica4': (BuildContext context) => TareasScreen(),
   };
 }
