@@ -11,7 +11,7 @@ class TareasScreen extends StatefulWidget {
 
 class _TareasScreenState extends State<TareasScreen> {
 
-   final imglogo = Image.asset('assets/dashlogo.gif', height: 350, width: 350);
+   final imglogo = Image.asset('assets/dash2logo.gif', height: 350, width: 350);
 
   @override
   Widget build(BuildContext context) {
@@ -68,15 +68,6 @@ class _TareasScreenState extends State<TareasScreen> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.person, color: Theme.of(context).iconTheme.color),
-            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
-            title: const Text('Profesores'),
-            subtitle: Text('Practica 4'),
-            onTap: () {
-              Navigator.pushNamed(context, '/professor');
-            },
-          ),
-          ListTile(
             leading: Icon(Icons.document_scanner, color: Theme.of(context).iconTheme.color),
             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
             title: const Text('Carreras'),
@@ -86,9 +77,19 @@ class _TareasScreenState extends State<TareasScreen> {
             },
           ),
           ListTile(
+            leading: Icon(Icons.person, color: Theme.of(context).iconTheme.color),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: const Text('Profesores'),
+            subtitle: Text('Practica 4'),
+            onTap: () {
+              Navigator.pushNamed(context, '/professor');
+            },
+          ),
+          
+          ListTile(
             leading: Icon(Icons.home_work, color: Theme.of(context).iconTheme.color),
             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
-            title: const Text('Task'),
+            title: const Text('Tareas'),
             subtitle: Text('Practica 4'),
             onTap: () {
               Navigator.pushNamed(context, '/tasks');

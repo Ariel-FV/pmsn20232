@@ -143,12 +143,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
             },
           ),
           ListTile(
+            leading: Icon(Icons.location_pin, color: Theme.of(context).iconTheme.color),
+             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: const Text('Clima en ubicacion actual'),
+            subtitle: Text('Practica 6'),
+            onTap: () {
+              Navigator.pushNamed(context, '/weather');
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.map, color: Theme.of(context).iconTheme.color),
             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
             title: const Text('Mapas'),
             subtitle: Text('Practica 6'),
             onTap: () {
-              Navigator.pushNamed(context, '/maps');
+              Navigator.pushNamed(context, '/maps2');
+            },
+          ),
+          
+          ListTile(
+            leading: Icon(Icons.list, color: Theme.of(context).iconTheme.color),
+             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: const Text('Lista de ubicaciones'),
+            subtitle: Text('Practica 6'),
+            onTap: () {
+              Navigator.pushNamed(context, '/listweather');
             },
           ),
           ListTile(

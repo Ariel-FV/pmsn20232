@@ -24,6 +24,9 @@ class StyleApp{
       iconTheme: IconThemeData(
         color: Color.fromARGB(238, 0, 214, 11),
       ),
+      /*cardTheme: CardTheme(
+        color: Color.fromARGB(236, 111, 37, 214),
+      ),*/
     );
   }
 }

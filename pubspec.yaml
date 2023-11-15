@@ -19,12 +19,15 @@ dependencies:
   table_calendar: ^3.0.9
   provider: ^6.0.5
   social_login_buttons: ^1.0.7
-  google_maps_flutter: ^2.5.0
   youtube_player_flutter: ^8.1.2
 
   firebase_core: ^2.21.0
   firebase_auth: ^4.12.1
   cloud_firestore: ^4.12.2
+
+  location: ^5.0.3
+  google_maps_flutter: ^2.5.0
+  curved_navigation_bar: ^1.0.3
 
   flutter:
     sdk: flutter
@@ -39,3 +42,4 @@ flutter:
   assets:
     - assets/
     - assets/animations/.
+    - animation/.
