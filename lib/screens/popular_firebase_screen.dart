@@ -20,26 +20,36 @@ class _PopularFirebaseScreenState extends State<PopularFirebaseScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: _favoritesFirebase!.getAllFavorites(),
-      builder: (context, snapshot){
-        if(snapshot.hasData){
-          return ListView.builder(
-            itemBuilder: (context, index) {
-              return Text(snapshot.data!.docs[index].get('title'));
-            },
-          );
-        }else{
-          if(snapshot.hasError){
-            return Center(child: Text('Error!'),);
+    return Scaffold(
+      body: StreamBuilder(
+        stream: _favoritesFirebase!.getAllFavorites(),
+        builder: (context, snapshot){
+          if(snapshot.hasData){
+            
+            return ListView.builder(
+              itemCount: snapshot.data!.docs.length,
+              itemBuilder: (context, index) {
+
+                return Column(
+                  children: [
+                    Image.network(snapshot.data!.docs[index].get('img')),
+                    Text(snapshot.data!.docs[index].get('title')),
+                  ],
+                );
+              },
+            );
           }else{
-            return Center(child: CircularProgressIndicator(),);
+            if(snapshot.hasError){
+              return Center(child: Text('Error!'),);
+            }else{
+              return Center(child: CircularProgressIndicator(),);
+            }
+    
+            
           }
-
-          
-        }
-
-      },
+    
+        },
+      ),
     );
   }
 }

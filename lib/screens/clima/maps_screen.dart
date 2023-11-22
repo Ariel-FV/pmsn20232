@@ -154,7 +154,7 @@ class _MapScreenState extends State<MapScreen> {
             title: locationName,
             snippet: 'Temperatura: $currentTemperature°C',
           ),
-          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
         ),
       });
     });

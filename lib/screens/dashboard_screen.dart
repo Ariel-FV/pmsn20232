@@ -171,6 +171,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
             },
           ),
           ListTile(
+            leading: Icon(Icons.movie, color: Theme.of(context).iconTheme.color),
+             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: const Text('Peliculas'),
+            subtitle: Text('Firebase'),
+            onTap: () {
+              Navigator.pushNamed(context, '/pelis');
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.logout, color: Theme.of(context).iconTheme.color),
             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
             title: const Text('logout'),

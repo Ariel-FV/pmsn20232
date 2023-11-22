@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pmsn20232/assets/global_values.dart';
 import 'package:pmsn20232/firebase/email_auth.dart';
+import 'package:pmsn20232/firebase/google_auth.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -20,8 +21,31 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     //controladores
+    bool isLoading = false;
+    GoogleAuth googleAuth = GoogleAuth();
+
     TextEditingController txtConUser = TextEditingController();
     TextEditingController txtConPass = TextEditingController();
+
+    final btnGoogle = SocialLoginButton(
+      buttonType: SocialLoginButtonType.google,
+      onPressed: () async {
+        isLoading = true;
+        setState(() {});
+        await googleAuth.signInWithGoogle().then((value) {
+          if (value.name != null) {
+            isLoading = false;
+            Navigator.pushNamed(context, '/dash', arguments: value);
+          } else {
+            isLoading = false;
+            setState(() {});
+            SnackBar(
+              content: Text('Verifica tus credenciales'),
+            );
+          }
+        });
+      },
+    );
 
     final txtRegister = Padding(
       padding: const EdgeInsets.symmetric(vertical: 25),
@@ -107,6 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               spaceHorizontal,
                               btnEmail,
                               spaceHorizontal,
+                              btnGoogle,
                               txtRegister,
                               spaceHorizontal,
                               conocenos()

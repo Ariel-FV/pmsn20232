@@ -12,6 +12,7 @@ import 'package:pmsn20232/screens/clima/maps_screen.dart';
 import 'package:pmsn20232/screens/clima/weather_screen.dart';
 import 'package:pmsn20232/screens/maps_screen.dart';
 import 'package:pmsn20232/screens/peli/movie_list_screen.dart';
+import 'package:pmsn20232/screens/popular_firebase_screen.dart';
 import 'package:pmsn20232/screens/register_screen.dart';
 import 'package:pmsn20232/screens/add_task.dart';
 import 'package:pmsn20232/screens/dashboard_screen.dart';
@@ -53,5 +54,7 @@ Map<String,WidgetBuilder> getRoutes(){
     '/maps2': (BuildContext context) => const MapScreen(),
     '/weather': (BuildContext context) => WeatherScreen(),
     '/listweather': (BuildContext context) => const listWeatherMarks(),
+
+    '/pelis': (BuildContext context) => const PopularFirebaseScreen(),
   };
 }

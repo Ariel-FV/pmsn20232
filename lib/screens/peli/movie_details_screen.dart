@@ -5,6 +5,7 @@ import 'package:pmsn20232/network/peli/api_popular.dart';
 import 'package:pmsn20232/widgets/peli/actor_card_info.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+// ignore: must_be_immutable
 class MovieDetailScreen extends StatelessWidget {
   ApiPopular apiPopular = ApiPopular();
 
