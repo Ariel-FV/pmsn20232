@@ -4,7 +4,7 @@ import 'package:pmsn20232/assets/global_values.dart';
 import 'package:pmsn20232/assets/styles_app.dart';
 import 'package:pmsn20232/provider/test_provider.dart';
 import 'package:pmsn20232/routes.dart';
-import 'package:pmsn20232/screens/dashboard_screen.dart';
+import 'package:pmsn20232/screens/proyecto/dashboard_screen.dart';
 import 'package:pmsn20232/screens/login_screen.dart';
 import 'package:provider/provider.dart';
 
