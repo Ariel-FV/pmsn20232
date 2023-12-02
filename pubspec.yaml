@@ -7,27 +7,37 @@ environment:
   sdk: '>=3.0.0-215.0.dev <4.0.0'
 
 dependencies:
-  flutter_slider_drawer: ^2.1.3
-  day_night_switcher: ^0.2.0+1
-  shared_preferences: ^2.2.1
-  carousel_slider: ^4.2.1
-  sqflite: ^2.2.8+3
-  path_provider: ^2.1.1
-  lottie: ^2.2.0
-  concentric_transition: ^1.0.3
-  http: ^1.1.0
-  table_calendar: ^3.0.9
-  provider: ^6.0.5
+  cupertino_icons: ^1.0.2
   social_login_buttons: ^1.0.7
-  youtube_player_flutter: ^8.1.2
+  email_validator: ^2.1.17
+  image_picker: ^0.8.6+3
+  provider: ^6.0.5
+  firebase_auth: ^4.3.0
+  firebase_core: ^2.8.0
+  cloud_firestore: ^4.5.0
+  google_sign_in: ^6.1.6
+  flutter_facebook_auth: ^5.0.8
+  url_launcher: ^6.1.10
+  uni_links: ^0.5.1
+  http: ^0.13.5
+  #flutter_html: ^2.2.1
+  shared_preferences: ^2.1.1
+  meedu: ^8.0.2
+  file_picker: ^5.2.10
+  firebase_storage: ^11.2.1
+  percent_indicator: ^4.2.3
+  firebase_messaging: ^14.6.1
+  flutter_local_notifications: ^14.1.0
+  cloud_functions: ^4.3.1
+  firebase_in_app_messaging: ^0.7.3+1
+  dio: ^5.1.2
+  cached_network_image: ^3.2.3
+  group_button: ^5.3.0
 
-  firebase_core: ^2.21.0
-  firebase_auth: ^4.12.1
-  cloud_firestore: ^4.12.2
+  html: ^0.15.0
+  translator: ^0.1.7
 
-  location: ^5.0.3
-  google_maps_flutter: ^2.5.0
-  curved_navigation_bar: ^1.0.3
+  github_sign_in_plus: ^0.0.1
 
   google_sign_in: ^6.1.0
 
@@ -43,5 +53,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
-    - assets/animations/.
-    - animation/.
+    #- assets/animations/.
+    #- animation/.

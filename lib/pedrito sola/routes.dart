@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import 'package:flutter/widgets.dart';
 import 'package:pmsn20232/screens/calen/add_carrera.dart';
 import 'package:pmsn20232/screens/calen/add_professor.dart';
@@ -16,25 +15,19 @@ import 'package:pmsn20232/screens/peli/movie_list_screen.dart';
 import 'package:pmsn20232/screens/popular_firebase_screen.dart';
 import 'package:pmsn20232/screens/register_screen.dart';
 import 'package:pmsn20232/screens/add_task.dart';
-import 'package:pmsn20232/screens/proyecto/dashboard_screen.dart';
+import 'package:pmsn20232/screens/dashboard_screen.dart';
 import 'package:pmsn20232/screens/detail_movie_screen.dart';
 import 'package:pmsn20232/screens/frutas_screen.dart';
-=======
-import 'package:flutter/material.dart';
-import 'package:pmsn20232/screens/dashboard_screen.dart';
-import 'package:pmsn20232/screens/edit_post.dart';
->>>>>>> Stashed changes
 import 'package:pmsn20232/screens/login_screen.dart';
-import 'package:pmsn20232/screens/password_screen.dart';
-import 'package:pmsn20232/screens/register_screen.dart';
-import 'package:pmsn20232/screens/subscriptions_screen.dart';
-import 'package:pmsn20232/screens/user_screen.dart';
+import 'package:pmsn20232/screens/onboard_screen.dart';
+import 'package:pmsn20232/screens/popular_screen.dart';
+import 'package:pmsn20232/screens/provider_screen.dart';
+import 'package:pmsn20232/screens/task_screen.dart';
 
-<<<<<<< Updated upstream
 
 Map<String,WidgetBuilder> getRoutes(){
   return{
-    //'/dash' : (BuildContext contex) => DashboardScreen(),
+    '/dash' : (BuildContext contex) => DashboardScreen(),
     '/frutas' : (BuildContext contex) => const FrutasScreen(),
     '/knows': (BuildContext contex) => const OnBoardScreen(),
     '/login': (BuildContext context) => const LoginScreen(),
@@ -62,20 +55,6 @@ Map<String,WidgetBuilder> getRoutes(){
     '/weather': (BuildContext context) => WeatherScreen(),
     '/listweather': (BuildContext context) => const listWeatherMarks(),
 
-    //proyecto
-    '/dash' : (BuildContext contex) => DashboardScreen(),
-
     '/pelis': (BuildContext context) => const PopularFirebaseScreen(),
-=======
-Map<String, WidgetBuilder> getApplicationRoutes() {
-  return <String, WidgetBuilder>{
-    '/login': (BuildContext context) => LoginScreen(),
-    '/dash': (BuildContext context) => DashboardScreen(),
-    '/register': (BuildContext context) => RegisterScreen(),
-    '/pwd': (BuildContext context) => passwordScreen(),
-    '/subs': (BuildContext context) => SubscriptionScreen(),
-    '/user': (BuildContext context) => UserScreen(),
-    '/editPost': (BuildContext context) => EditPost(),
->>>>>>> Stashed changes
   };
 }
