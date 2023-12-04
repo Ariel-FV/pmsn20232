@@ -6,10 +6,10 @@ class StyleApp{
     return theme.copyWith(
       //primaryColor: Color.fromARGB(255, 255, 100, 50),
       colorScheme: Theme.of(context).colorScheme.copyWith(
-        primary: Color.fromARGB(255, 194, 47, 235),
+        primary: Color.fromARGB(255, 0, 50, 95),
       ),
-      iconTheme: IconThemeData(
-        color: Color.fromARGB(255, 194, 47, 235),
+      iconTheme: const IconThemeData(
+        color: Color.fromARGB(255, 0, 50, 95),
       ),
     );
   }
@@ -18,15 +18,26 @@ class StyleApp{
     final theme = ThemeData.dark();
     return theme.copyWith(
       colorScheme: Theme.of(context).colorScheme.copyWith(
-        primary: Color.fromARGB(238, 0, 214, 11),
+        primary: Color.fromARGB(235, 95, 230, 255)     
+      ),
+      iconTheme: const IconThemeData(
+        color: Color.fromARGB(235, 95, 230, 255),
+      ),
+    );
+  }
+
+  static ThemeData customTheme(BuildContext context){
+    final theme = ThemeData.dark();
+    return theme.copyWith(
+      colorScheme: Theme.of(context).colorScheme.copyWith(
+        primary: const Color.fromARGB(240, 215, 0, 80),
         
       ),
-      iconTheme: IconThemeData(
-        color: Color.fromARGB(238, 0, 214, 11),
+      iconTheme: const IconThemeData(
+        color: Color.fromARGB(240, 215, 0, 80),
       ),
-      /*cardTheme: CardTheme(
-        color: Color.fromARGB(236, 111, 37, 214),
-      ),*/
     );
   }
 }
+
+

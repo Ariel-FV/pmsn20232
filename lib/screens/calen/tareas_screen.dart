@@ -11,13 +11,13 @@ class TareasScreen extends StatefulWidget {
 
 class _TareasScreenState extends State<TareasScreen> {
 
-   final imglogo = Image.asset('assets/dash2logo.gif', height: 350, width: 350);
+   //final imglogo = Image.asset('assets/dash2logo.gif', height: 350, width: 350);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sistema De Tareas :('),
+        title: Text('Sistema De Tareas'),
       ),
       body: Stack(
           children: [
@@ -32,7 +32,7 @@ class _TareasScreenState extends State<TareasScreen> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                              imglogo,
+                              //imglogo,
                           ],
                         ),
                       ],
@@ -53,25 +53,16 @@ class _TareasScreenState extends State<TareasScreen> {
         children: [
           const UserAccountsDrawerHeader(
             currentAccountPicture: CircleAvatar(
-              backgroundImage: NetworkImage('https://i.pravatar.cc/300'),
+              backgroundImage: NetworkImage('https://avatars.githubusercontent.com/u/102234549?v=4'),
             ),
-            accountName: Text('Siddhartha Ariel F.'),
-            accountEmail: Text('18031781@itcelaya.edu.mx')
-          ),
-          ListTile(
-            leading: Icon(Icons.date_range, color: Theme.of(context).iconTheme.color),
-            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
-            title: const Text('Calendario'),
-            subtitle: Text('Practica 4'),
-            onTap: () {
-              Navigator.pushNamed(context, '/calendar');
-            },
+            accountName: Text('Alan Sanchez'),
+            accountEmail: Text('saulsanchezd@hotmail.com')
           ),
           ListTile(
             leading: Icon(Icons.document_scanner, color: Theme.of(context).iconTheme.color),
             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
             title: const Text('Carreras'),
-            subtitle: Text('Practica 4'),
+            subtitle: Text(''),
             onTap: () {
               Navigator.pushNamed(context, '/carreras');
             },
@@ -80,26 +71,27 @@ class _TareasScreenState extends State<TareasScreen> {
             leading: Icon(Icons.person, color: Theme.of(context).iconTheme.color),
             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
             title: const Text('Profesores'),
-            subtitle: Text('Practica 4'),
+            subtitle: Text(''),
             onTap: () {
               Navigator.pushNamed(context, '/professor');
             },
           ),
-          
           ListTile(
             leading: Icon(Icons.home_work, color: Theme.of(context).iconTheme.color),
             trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
             title: const Text('Tareas'),
-            subtitle: Text('Practica 4'),
+            subtitle: Text(''),
             onTap: () {
               Navigator.pushNamed(context, '/tasks');
             },
           ),
-          DayNightSwitcher(
-            isDarkModeEnabled: GlobalValues.flagTheme.value,
-            onStateChanged: (isDarkModeEnabled) {
-              GlobalValues.teme.setBool('teme', isDarkModeEnabled);
-              GlobalValues.flagTheme.value = isDarkModeEnabled;
+          ListTile(
+            leading: Icon(Icons.date_range, color: Theme.of(context).iconTheme.color),
+            trailing: Icon(Icons.chevron_right, color: Theme.of(context).iconTheme.color),
+            title: const Text('Calendario'),
+            subtitle: Text(''),
+            onTap: () {
+              Navigator.pushNamed(context, '/calendar');
             },
           ),
         ],

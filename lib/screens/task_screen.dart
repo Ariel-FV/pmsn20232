@@ -50,7 +50,7 @@ void initState(){
               }else{
                 if(snapshot.hasError){
                   return const Center(
-                    child: Text('Ya valio madres :\')'),
+                    child: Text('Error \')'),
                   );
                 }else{
                   return CircularProgressIndicator();

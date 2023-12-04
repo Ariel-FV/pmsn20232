@@ -48,7 +48,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
             icon: const Icon(Icons.map))
         ]
       ),
-      backgroundColor: const Color.fromARGB(255, 118, 209, 255),
+      backgroundColor: Color.fromARGB(255, 75, 245, 200),
       extendBodyBehindAppBar: true,
       
       body: Center(

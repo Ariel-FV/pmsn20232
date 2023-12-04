@@ -19,9 +19,9 @@ class CardCarreraWidget extends StatelessWidget {
       padding: EdgeInsets.all(10),
 
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 19, 12, 215), borderRadius: BorderRadius.circular(10),
+        color: Color.fromARGB(255, 90, 90, 245), borderRadius: BorderRadius.circular(10),
         boxShadow: [
-          BoxShadow(color: Colors.grey, spreadRadius: 3),
+          BoxShadow(color: Colors.white, spreadRadius: 3),
         ],
       ),
       child: Row(

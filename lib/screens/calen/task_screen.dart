@@ -64,7 +64,7 @@ class _TareaScreenState extends State<TareaScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Registro Tareas :('),
+        title: const Text('Registro Tareas'),
         actions: [
           IconButton(
               onPressed: () =>

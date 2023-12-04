@@ -44,8 +44,8 @@ class _ItemPopularState extends State<ItemPopular> {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return IconButton(
-                    icon: Icon(Icons.favorite),
-                    color: snapshot.data != true ? const Color.fromARGB(255, 106, 106, 106) : Colors.red,
+                    icon: Icon(Icons.star),
+                    color: snapshot.data != true ? const Color.fromARGB(255, 106, 106, 106) : Colors.yellow,
                     onPressed: () {
                       if (snapshot.data != true) {
                         databaseHelper

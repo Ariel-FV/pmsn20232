@@ -16,7 +16,7 @@ class MovieDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Colors.green,
+        backgroundColor: const Color.fromARGB(255, 60, 60, 60),
         title: Text(popularModel.title!),
       ),
       body: Hero(
@@ -42,7 +42,7 @@ class MovieDetailScreen extends StatelessWidget {
                       popularModel.backdropPath!,
                 ),
                 fit: BoxFit.fill,
-                opacity: 0.3,
+                opacity: 0.5,
               ),
             ),
             padding: EdgeInsets.fromLTRB(20, 30, 20, 5),
@@ -155,7 +155,7 @@ class MovieDetailScreen extends StatelessWidget {
   }
   actorp(ActorModel actor2){
     if(actor2.profilePath==null){
-      return 'https://img.freepik.com/fotos-premium/gato-negro-traje-corbata_871710-7371.jpg';
+      return 'https://pluspng.com/img-png/user-png-icon-download-icons-logos-emojis-users-2240.png';
     }else{
       return 'https://image.tmdb.org/t/p/original${actor2.profilePath}';
     }

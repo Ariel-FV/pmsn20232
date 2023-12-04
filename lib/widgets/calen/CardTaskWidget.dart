@@ -17,17 +17,17 @@ class CardTaskWidget extends StatelessWidget {
       padding: EdgeInsets.all(10),
 
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 255, 77, 127), borderRadius: BorderRadius.circular(10),
+        color: Color.fromARGB(255, 90, 90, 245), borderRadius: BorderRadius.circular(10),
         boxShadow: [
-          BoxShadow(color: Colors.grey, spreadRadius: 3),
+          BoxShadow(color: Colors.white, spreadRadius: 3),
         ],
       ),
       child: Row(
         children: [
           Column(
             children: [
-              Text('Nombre: '+taskModel.nomTask!,style:TextStyle(color: Colors.white)), 
-              Text('Descripción: '+taskModel.desTask!,style:TextStyle(color: Colors.white)),
+              Text(''+taskModel.nomTask!,style:TextStyle(color: Colors.white)), 
+              Text(''+taskModel.desTask!,style:TextStyle(color: Colors.white)),
             ],
           ),
           IconButton(

@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
         onPressed: () {
           Navigator.pushNamed(context, '/register');
           },
-          child: const Text('Crear cuenta :)', style: TextStyle(fontSize: 18, decoration: TextDecoration.underline))));
+          child: const Text('Registrarse', style: TextStyle(fontSize: 18, decoration: TextDecoration.underline))));
 
     final txtEmail = TextFormField(
       controller: txtConUser,
@@ -72,8 +72,8 @@ class _LoginScreenState extends State<LoginScreen> {
         });
       });
 
-    txtConUser.text = 'ariel.fonseca19@hotmail.com';
-    txtConPass.text = '123456';
+    txtConUser.text = 'saulsanchezd@hotmail.com';
+    txtConPass.text = 'yamatodmc3';
     
     //construccion de la pantalla login
     return Scaffold(
@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 image: DecorationImage(
                   opacity: .6, 
                   fit: BoxFit.cover, 
-                  image: AssetImage('assets/fondotf.jpg')
+                  image: AssetImage('assets/fondoesp.jpg')
                 )
               ),
               child: Padding(
@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               spaceHorizontal,
                               txtRegister,
                               spaceHorizontal,
-                              conocenos()
+                              //conocenos()
                           ],
                         ),
                       ],
@@ -124,21 +124,3 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-class conocenos extends StatelessWidget {
-  const conocenos({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton.extended(
-      heroTag: conocenos,
-      onPressed: () {
-        Navigator.pushNamed(context, '/knows');
-      },
-      label: const Text('Info.'),
-      icon: const Icon(Icons.info),
-      backgroundColor: const Color.fromARGB(255, 25, 143, 31),
-    );
-  }
-}

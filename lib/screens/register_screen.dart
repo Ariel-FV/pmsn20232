@@ -18,17 +18,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Registrar Usuario'),),
+      appBar: AppBar(title: const Text('Registrar Usuario'),),
       body: Column(
         children: [
           TextFormField(
             controller: conNameUser,
+            decoration: const InputDecoration(
+              label: Text('Nombre'),
+              border: OutlineInputBorder()
+            ),
           ),
           TextFormField(
             controller: conEmailUser,
+            decoration: const InputDecoration(
+              label: Text('Correo'),
+              border: OutlineInputBorder()
+            ),
           ),
           TextFormField(
             controller: conPwdUser,
+            decoration: const InputDecoration(
+              label: Text('Password'),
+              border: OutlineInputBorder()
+            ),
           ),
           ElevatedButton(onPressed: (){
             var email = conEmailUser.text;
@@ -40,7 +52,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             emailAuth.createUser(emailUser: email, pwdUser: pwd);
 
             Navigator.pop(context);
-          }, child: Text('Registrar'))
+          }, child: const Text('Registrar'))
         ],
       ),
     );

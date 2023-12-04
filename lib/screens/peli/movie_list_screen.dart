@@ -35,8 +35,8 @@ class _MovieListVideosState extends State<MovieListVideos> {
         actions: [
           IconButton(
             icon: isFavoriteView != true
-                ? Icon(Icons.favorite)
-                : Icon(Icons.list),
+                ? Icon(Icons.star)
+                : Icon(Icons.list_alt),
             onPressed: () {
               setState(() {
                 isFavoriteView = !isFavoriteView;

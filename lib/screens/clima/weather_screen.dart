@@ -34,7 +34,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Clima en ubicacion actual.'),
+        title: Text('Clima Actual.'),
         actions: [
           IconButton(
             onPressed: () =>{
@@ -52,7 +52,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
             icon: const Icon(Icons.map)),
         ]
       ),
-      backgroundColor: const Color.fromARGB(255, 118, 209, 255),
+      backgroundColor: Colors.yellow.shade700,
       body: Center( 
         child: dailyTemperatures.isNotEmpty
             ? Column(
@@ -61,7 +61,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   Text(
                     '${dailyTemperatures.isNotEmpty ? dailyTemperatures[0]['cityName'] : ''}',
                     style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: Color.fromARGB(255, 0, 0, 0),
                         fontWeight: FontWeight.w900,
                         fontStyle: FontStyle.italic,
                         fontFamily: 'Open Sans',
@@ -144,7 +144,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                           margin: EdgeInsets.all(8),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 133, 202, 236)
+                              color: Color.fromARGB(255, 230, 165, 80)
                                   .withOpacity(0.5),
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(color: Colors.white, width: 1),
